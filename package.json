@@ -1,0 +1,41 @@
+{
+  "name": "finlens-excel-add-in",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "test:api": "python3 -m unittest discover -s api/tests -t api",
+    "sandbox:build": "docker build -t finlens-sandbox:1 sandbox-image",
+    "test:sandbox": "python3 api/tests/run_sandbox_suite.py",
+    "dev:api": "python3 -m uvicorn app.main:app --app-dir api --host 127.0.0.1 --port 8000",
+    "dev:certs": "office-addin-dev-certs install"
+  },
+  "dependencies": {
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "22.20.5",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "jsdom": "^27.0.1",
+    "office-addin-dev-certs": "3.0.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.1",
+    "vite": "^7.1.12",
+    "vitest": "^3.2.4"
+  }
+}

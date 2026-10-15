@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="TaskPaneApp">
+  <Id>54e2de2b-5a90-4fe5-8fd9-bb3c9526a18a</Id>
+  <Version>0.1.0.0</Version>
+  <ProviderName>FinLens</ProviderName>
+  <DefaultLocale>ru-RU</DefaultLocale>
+  <DisplayName DefaultValue="FinLens" />
+  <Description DefaultValue="Read-only финансовый аналитик для Excel." />
+  <Hosts><Host Name="Workbook" /></Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1"><Set Name="ExcelApi" /></Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:5173/index.html" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements><bt:Sets DefaultMinVersion="1.1"><bt:Set Name="ExcelApi" /></bt:Sets></Requirements>
+    <Hosts><Host xsi:type="Workbook"><DesktopFormFactor><FunctionFile resid="Commands.Url" />
+      <ExtensionPoint xsi:type="PrimaryCommandSurface"><OfficeTab id="TabHome"><Group id="FinLens.Group"><Label resid="GroupLabel" />
+        <Control xsi:type="Button" id="FinLens.OpenPane"><Label resid="OpenPane.Label" /><Supertip><Title resid="OpenPane.Label" /><Description resid="OpenPane.Tooltip" /></Supertip><Action xsi:type="ShowTaskpane"><TaskpaneId>FinLensPane</TaskpaneId><SourceLocation resid="Taskpane.Url" /></Action></Control>
+      </Group></OfficeTab></ExtensionPoint>
+    </DesktopFormFactor></Host></Hosts>
+    <Resources><bt:Images /><bt:Urls><bt:Url id="Commands.Url" DefaultValue="https://localhost:5173/index.html" /><bt:Url id="Taskpane.Url" DefaultValue="https://localhost:5173/index.html" /></bt:Urls>
+      <bt:ShortStrings><bt:String id="GroupLabel" DefaultValue="FinLens" /><bt:String id="OpenPane.Label" DefaultValue="Открыть FinLens" /></bt:ShortStrings>
+      <bt:LongStrings><bt:String id="OpenPane.Tooltip" DefaultValue="Открыть read-only панель FinLens." /></bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
